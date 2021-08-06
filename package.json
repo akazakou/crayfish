@@ -1,0 +1,24 @@
+{
+  "name": "crayfish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "docker:build": "docker build -f deploy/docker/Dockerfile --tag crayfish:latest . && docker tag crayfish docker.pkg.github.com/akazakou/crayfish/crayfish:latest",
+    "docker:push": "docker push docker.pkg.github.com/akazakou/crayfish/crayfish:latest",
+    "docker:pull": "docker pull docker.pkg.github.com/akazakou/crayfish/crayfish:latest"
+  },
+  "keywords": [
+    "http",
+    "https",
+    "rancher",
+    "helm",
+    "testing"
+  ],
+  "author": "Andrei Kazakou<a.v.kazakou@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5"
+  }
+}

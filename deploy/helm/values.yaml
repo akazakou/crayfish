@@ -1,0 +1,4 @@
+name: crayfish
+replication: true
+replicas: 5
+serviceType: ClusterIP
