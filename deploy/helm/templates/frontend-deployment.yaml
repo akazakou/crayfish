@@ -24,4 +24,4 @@ spec:
           ports:
             - containerPort: 3000
       imagePullSecrets:
-        - name: akazakou-github-cred
+        - name: github-cred
