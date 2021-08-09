@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "docker:build": "docker build -f deploy/docker/Dockerfile --tag crayfish:latest . && docker tag crayfish docker.pkg.github.com/akazakou/crayfish/crayfish:latest",
-    "docker:push": "docker push docker.pkg.github.com/akazakou/crayfish/crayfish:latest",
-    "docker:pull": "docker pull docker.pkg.github.com/akazakou/crayfish/crayfish:latest"
+    "docker:build": "docker build -f deploy/docker/Dockerfile --tag crayfish:latest . && docker tag crayfish ghcr.io/akazakou/crayfish/crayfish:latest",
+    "docker:push": "docker push ghcr.io/akazakou/crayfish/crayfish:latest",
+    "docker:pull": "docker pull ghcr.io/akazakou/crayfish/crayfish:latest"
   },
   "keywords": [
     "http",
