@@ -20,7 +20,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ .Values.name }}-frontend
+  name: {{ .Values.host }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/issuer: "{{ .Values.name }}-letsencrypt"
@@ -35,5 +35,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: {{ .Values.name }}
+              serviceName: {{ .Values.name }}-frontend
               servicePort: 3000
