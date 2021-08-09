@@ -7,7 +7,8 @@ module.exports = {
     path: '/config/{fileName*}',
     handler: (request, h) => {
       const { fileName } = request.params;
-      return h.response(readFileSync(join(...[ __dirname, '..', '..', 'config', fileName ])).toString());
+      const content = readFileSync(join(...[ __dirname, '..', '..', 'config', fileName ])).toString();
+      return h.response(content).header('content-type', 'text/plain');
     },
   }
 }
