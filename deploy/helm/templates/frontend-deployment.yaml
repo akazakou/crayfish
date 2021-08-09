@@ -23,11 +23,11 @@ spec:
               memory: 256Mi
           ports:
             - containerPort: 3000
-        volumeMounts:
-          - name: {{ .Values.name }}-configuration-volume
-            mountPath: /app/config/default.json
-            subPath: default.json
-            readOnly: true
+          volumeMounts:
+            - name: {{ .Values.name }}-configuration-volume
+              mountPath: /app/config/default.json
+              subPath: default.json
+              readOnly: true
       volumes:
         - name: {{ .Values.name }}-configuration-volume
           configMap:
