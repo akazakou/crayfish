@@ -25,7 +25,7 @@ spec:
             - containerPort: 3000
         volumeMounts:
           - name: {{ .Values.name }}-configuration-volume
-            mountPath: "/config/app"
+            mountPath: /app/config/settings.json
             readOnly: true
       volumes:
         - name: {{ .Values.name }}-configuration-volume
