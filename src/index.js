@@ -1,4 +1,5 @@
 const Hapi = require('@hapi/hapi')
+const initControllers = require('./controllers')
 
 const init = async () => {
 
@@ -7,14 +8,7 @@ const init = async () => {
     host: 'localhost',
   })
 
-  server.route({
-    method: 'GET',
-    path: '/response/{code}',
-    handler: (request, h) => {
-      const code = request.params.code
-      return h.response({ code }).code(Number(code))
-    },
-  })
+  await initControllers(server);
 
   await server.start()
   console.log('Server running on %s', server.info.uri)
