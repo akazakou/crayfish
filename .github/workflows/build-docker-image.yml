@@ -26,3 +26,9 @@ jobs:
 
       - name: Push Image
         run: npm run docker:push
+
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: ${{ secrets.DEPLOYMENT_WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.DEPLOYMENT_WEBHOOK_SECRET }}
