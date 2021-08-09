@@ -2,3 +2,4 @@ name: crayfish
 replication: true
 replicas: 5
 serviceType: ClusterIP
+host: crayfish.cluster.kantora.pro

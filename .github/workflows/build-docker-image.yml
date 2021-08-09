@@ -27,6 +27,7 @@ jobs:
       - name: Push Image
         run: npm run docker:push
 
+      # trigger deployment hook for fleet https://fleet.rancher.io/webhook/
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v2
         env:
