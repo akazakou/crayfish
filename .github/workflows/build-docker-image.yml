@@ -9,6 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set env
+        run: |
+          echo "GIT_HASH=$(echo $(git rev-parse HEAD))" >> $GITHUB_ENV
+          echo "GIT_REF=$(echo $(git branch | grep \\* | cut -d ' ' -f2))" >> $GITHUB_ENV
+          echo "GIT_URL=$(echo $(git config --get remote.origin.url))" >> $GITHUB_ENV
+
       - name: Setup Node
         uses: actions/setup-node@v1
 
