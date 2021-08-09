@@ -23,5 +23,13 @@ spec:
               memory: 256Mi
           ports:
             - containerPort: 3000
+        volumeMounts:
+          - name: {{ .Values.name }}-configuration-volume
+            mountPath: /config/{{ .Values.name }}-configuration
+            readOnly: true
+      volumes:
+        - name: {{ .Values.name }}-configuration-volume
+          configMap:
+            name: {{ .Values.name }}-configuration
       imagePullSecrets:
         - name: github-cred
