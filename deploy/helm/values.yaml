@@ -1,5 +1,43 @@
+replicaCount: 1
 name: crayfish
-replication: true
-replicas: 5
-serviceType: ClusterIP
-host: crayfish.cluster.kantora.pro
+port: 3000
+environment: dev
+namespace: default
+
+image:
+  tag: master
+  domain: ghcr.io/akazakou
+  repository: crayfish/crayfish
+  pullPolicy: Always
+
+deployment:
+  livenessProbe:
+    path: /actuator/health
+    initialDelaySeconds: 300
+    periodSeconds: 5
+
+service:
+  type: ClusterIP
+
+ingress:
+  host: cluster.kantora.pro
+  path: /
+  pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 2048Mi
+  requests:
+    cpu: 250m
+    memory: 1024Mi
+
+autoscaling:
+  minReplicas: 1
+  maxReplicas: 25
+  maxPercentOfMemoryUsage: 80
+  maxPercentOfCPUUsage: 80

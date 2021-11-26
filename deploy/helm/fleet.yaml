@@ -1,26 +1,9 @@
-namespace: fleet-mc-helm-example
-targetCustomizations:
-  - name: dev
-    helm:
-      values:
-        replication: false
-    clusterSelector:
-      matchLabels:
-        env: dev
-
-  - name: test
-    helm:
-      values:
-        replicas: 3
-    clusterSelector:
-      matchLabels:
-        env: test
-
-  - name: prod
-    helm:
-      values:
-        serviceType: LoadBalancer
-        replicas: 3
-    clusterSelector:
-      matchLabels:
-        env: prod
+# GitRepo resolve conflicts section
+# @see https://fleet.rancher.io/bundle-diffs/#generating-diffs-for-modified-gitrepos
+diff:
+  comparePatches:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: crayfish
+      operations:
+        - {"op": "remove", "path": "/spec/replicas"} # ignoring changed value for auto-scaled deployments
