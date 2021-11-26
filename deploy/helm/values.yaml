@@ -5,7 +5,7 @@ environment: dev
 namespace: default
 
 image:
-  tag: master
+  tag: latest
   domain: ghcr.io/akazakou
   repository: crayfish/crayfish
   pullPolicy: Always
