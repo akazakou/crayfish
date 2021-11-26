@@ -12,7 +12,7 @@ image:
 
 deployment:
   livenessProbe:
-    path: /actuator/health
+    path: /probe/liveness
     initialDelaySeconds: 300
     periodSeconds: 5
 
