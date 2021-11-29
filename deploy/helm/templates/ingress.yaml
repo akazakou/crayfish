@@ -27,7 +27,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - {{ .Values.ingress.host }}
+        - {{.Values.name}}.{{.Values.namespace}}.{{.Values.ingress.host}}
       secretName: "{{ .Values.name }}-{{ .Values.namespace }}-letsencrypt"
   rules:
     - host: {{.Values.name}}.{{.Values.namespace}}.{{.Values.ingress.host}}
