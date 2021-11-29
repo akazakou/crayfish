@@ -13,7 +13,7 @@ image:
 deployment:
   livenessProbe:
     path: /probe/liveness
-    initialDelaySeconds: 300
+    initialDelaySeconds: 10
     periodSeconds: 5
 
 service:
